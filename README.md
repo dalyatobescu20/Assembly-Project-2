@@ -1,4 +1,4 @@
-<span style="color:red;">your text here > </span>
+
 ## Encrypting a Word**
 
 We encrypted a word based on a given step/key:
