@@ -1,51 +1,34 @@
-TASK1:
+## **TASK1: Encrypting a Word**
 
-    Pentru Task1 am avut de criptat un cuvant in functie de un step/cheie:
-    
-    -->  Am parcurs cuvantul de la coada la capat pentru a nu mai folosi
-        variabile in sus, pana cand ecx, contorul, devine 0
-    -->  Comparam fiecare litera si ne asiguram ca sunt doar UPPER CASES
-    -->  Daca este litera mica adaugam 26 ca sa o facem litera mare
-    -->  aplicam criptarea, adunand litera cu cheia de criptare
+In Task1, we encrypted a word based on a given step/key:
 
-TASK2.1 -> avem de aflat distanta dintre 2 puncte
+- We traversed the word from end to start to avoid using variables upwards until the counter, `ecx`, becomes 0.
+- We ensured that each letter is **uppercase**.
+- If a letter is **lowercase**, we added **26** to convert it to uppercase.
+- Encryption was applied by adding the encryption key to each letter.
 
-    Calculam distanta astfel:
-    --> luam primul x si al doilea , practic primul x este pe prima pozitie
-        din vector, iar al doilea x este pe pozitia primului + dim unui punct = 4
-    --> le comparam si daca x1 < x2 , facem diferenta x2 - x1, daca x1>x2,
-        face diferenta x1-x2 si in final daca sunt egale trecem sa 
-        comparam y1 cu y2 prin aceeasi metoda
+## **TASK2.1: Finding the Distance Between Two Points**
 
-TASK2.2 -> avem de aflat distanta dintre mai multe puncte
+The distance is calculated as follows:
+- We take the first **x-coordinate** and the second. Essentially, the first x is at the beginning of the vector, and the second x is at the position of the first + the size of a point = 4.
+- We compare them, and if `x1 < x2`, we find the difference `x2 - x1`; if `x1 > x2`, we find the difference `x1 - x2`. Finally, if they are equal, we compare `y1` with `y2` using the same method.
 
-    Procedeul este acelasi ca la TASK2.1, numai ca acum parcurgem tot vectorul
-    de puncte cu ajutorul unui contor care retine nr de puncte
-    Parcurgerea este de la coada la capat pentru a economisi alte registre.
+## **TASK2.2: Finding the Distance Between Multiple Points**
 
- TASK2.3 
- 
-    --> avem de a afla daca distantele aflate la TASK2.2 sunt patrate perfecte
-    --> registrul esi o sa creasca de la 1 la n pana cand n*n este <=
-        cu cea mai mare distanta
-    --> am pus valoarea lui esi in al pentru a putea aplica mul
-    --> am comparat al cu elementele din vectorul de distante,
-        daca este egal intram in loop ul perfect_square si punem
-        in vectorul final ecx, val 1
-    --> in caz ca nu s a gasit o sa punem 0, deci intram in loop ul
-        not_perfect
-    --> continuam procedeul pana cand nr de distante se termina
+The procedure is similar to **TASK2.1**, but now we traverse the entire vector of points using a counter that stores the number of points. Traversal is from end to start to save additional registers.
 
- TASK3
- 
-    --> am pastrat toate registrele in variabile pentru a folosi registrele
-        in rezolvarea task ului
-        Procedeul functioneaza astfel:
-    --> extrag din plain_text si din key pe rand fiecare litera si fac 
-        key - plain_text, daca diferenta > = 0 atunci pentru a afla
-        litera criptata, adaugam 65, in caz ca este < 0, adaugam intai 26
-        si apoi 65
-    --> key ul se restarteaza din nou de fiecare data cand a atins lungimea sa
-        pana cand key-ul se intinte pe toata lungimea cuvantului necriptat
+## **TASK2.3: Checking for Perfect Square Distances**
 
-PS: Imi pare rau pentru stilul meu de a explica ce se intampla in cod
+- We need to determine if the distances found in **TASK2.2** are perfect squares.
+- The `esi` register increments from `1` to `n` until `n*n` is <= the largest distance.
+- We store the value of `esi` in `al` to apply multiplication.
+- We compare `al` with the elements from the distance vector. If it's equal, we enter the `perfect_square` loop and set `ecx` to `1` in the final vector.
+- If it's not found, we set it to `0`, entering the `not_perfect` loop.
+- We continue this process until all distances are checked.
+
+## **TASK3: Encrypting Text**
+
+- All registers are stored in variables to utilize them in solving the task.
+- The procedure functions as follows:
+- We extract each letter alternately from `plain_text` and `key` and calculate `key - plain_text`. If the difference is >= `0`, we add `65` to find the encrypted letter. If it's < `0`, we add `26` first, then `65`.
+- The key resets each time it reaches its length until it covers the entire length of the unencrypted word.
