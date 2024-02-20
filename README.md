@@ -1,23 +1,23 @@
-## **TASK1: Encrypting a Word**
+## Encrypting a Word**
 
-In Task1, we encrypted a word based on a given step/key:
+We encrypted a word based on a given step/key:
 
 - We traversed the word from end to start to avoid using variables upwards until the counter, `ecx`, becomes 0.
 - We ensured that each letter is **uppercase**.
 - If a letter is **lowercase**, we added **26** to convert it to uppercase.
 - Encryption was applied by adding the encryption key to each letter.
 
-## **TASK2.1: Finding the Distance Between Two Points**
+## Finding the Distance Between Two Points**
 
 The distance is calculated as follows:
 - We take the first **x-coordinate** and the second. Essentially, the first x is at the beginning of the vector, and the second x is at the position of the first + the size of a point = 4.
 - We compare them, and if `x1 < x2`, we find the difference `x2 - x1`; if `x1 > x2`, we find the difference `x1 - x2`. Finally, if they are equal, we compare `y1` with `y2` using the same method.
 
-## **TASK2.2: Finding the Distance Between Multiple Points**
+## Finding the Distance Between Multiple Points**
 
 The procedure is similar to **TASK2.1**, but now we traverse the entire vector of points using a counter that stores the number of points. Traversal is from end to start to save additional registers.
 
-## **TASK2.3: Checking for Perfect Square Distances**
+## Checking for Perfect Square Distances**
 
 - We need to determine if the distances found in **TASK2.2** are perfect squares.
 - The `esi` register increments from `1` to `n` until `n*n` is <= the largest distance.
@@ -26,7 +26,7 @@ The procedure is similar to **TASK2.1**, but now we traverse the entire vector o
 - If it's not found, we set it to `0`, entering the `not_perfect` loop.
 - We continue this process until all distances are checked.
 
-## **TASK3: Encrypting Text**
+## Encrypting Text**
 
 - All registers are stored in variables to utilize them in solving the task.
 - The procedure functions as follows:
